@@ -60,11 +60,18 @@
         style="position:fixed;top:50%;left:50%;margin-left:-220px;margin-top:-220px;">
 
 
+    <div style="position:fixed;left:10px;right:10px;bottom:0;text-align:center;width:100%;font-size:30px;">mueve el
+        cursor o toca la pantalla</div>
+
+
+
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 
 
     <script>
+        var screen_height = $(document).height();
+        var screen_width = $(document).width();
 
 
         window.addEventListener('mousemove', (evt) => {
@@ -80,17 +87,39 @@
         });
 
 
+        function randomNumber(min, max) {
+            if (min > max) {
+                let temp = max;
+                max = min;
+                min = temp;
+            }
+
+            if (min <= 0) {
+                return Math.floor(Math.random() * (max + Math.abs(min) + 1)) + min;
+            } else {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+        }
+
         function changeColor(evt) {
 
             var currentX;
             var currentY;
 
-            if (event.touches) {
-                currentX = event.touches[0].clientX;
-                currentY = event.touches[0].clientY;
+
+            if (event) {
+                if (event.touches) {
+                    currentX = event.touches[0].clientX;
+                    currentY = event.touches[0].clientY;
+                } else {
+                    currentX = evt.pageX;
+                    currentY = evt.pageY;
+                }
             } else {
-                currentX = evt.pageX;
-                currentY = evt.pageY;
+
+                currentX = randomNumber(0, screen_width);
+                currentY = randomNumber(0, screen_height);
+
             }
 
 
@@ -115,6 +144,8 @@
 
 
         }
+
+        changeColor(false);
 
     </script>
 
