@@ -48,8 +48,20 @@
         }
 
 
+        #cara {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+        }
 
         @media screen and (min-width: 480px) {
+            #cara {
+                width: 540px;
+                height: 540px;
+                margin-left: -270px;
+                margin-top: -270px;
+            }
+
             .info_mobile {
                 display: none;
             }
@@ -61,6 +73,13 @@
 
 
         @media screen and (max-width: 480px) {
+            #cara {
+                width: 380px;
+                height: 380px;
+                margin-left: -190px;
+                margin-top: -190px;
+            }
+
             .info_mobile {
                 display: block;
             }
@@ -79,9 +98,7 @@
     <a class="credits" href="https://twitter.com/vivirenremoto/" target="_blank"
         style="position:fixed;right:10px;">vivirenremoto</a>
 
-    <img id="cara" src="cara.png" width="440" height="440"
-        style="position:fixed;top:50%;left:50%;margin-left:-220px;margin-top:-220px;">
-
+    <img id="cara" src="cara.png" width="380" height="380">
 
 
     <div style="position:fixed;left:10px;right:10px;bottom:0;text-align:center;width:100%;font-size:30px;">
