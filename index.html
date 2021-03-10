@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vampire by Patricia Almeida</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>
+
+
+    <style>
+        * {
+            font-family: 'VT323', monospace;
+            text-transform: uppercase;
+
+            -webkit-touch-callout: none;
+            /* iOS Safari */
+            -webkit-user-select: none;
+            /* Safari */
+            -khtml-user-select: none;
+            /* Konqueror HTML */
+            -moz-user-select: none;
+            /* Old versions of Firefox */
+            -ms-user-select: none;
+            /* Internet Explorer/Edge */
+            user-select: none;
+            /* Non-prefixed version, currently
+                            supported by Chrome, Edge, Opera and Firefox */
+        }
+
+        BODY {
+            touch-action: pan-x pan-y;
+        }
+
+
+        .credits {
+            font-size: 30px;
+            color: black !important;
+        }
+    </style>
+
+
+
+    <a class="credits" href="https://www.instagram.com/p/Bq8Au4QB39C/" target="_blank"
+        style="position:fixed;left:10px;">Patricia Almeida</a>
+
+    <a class="credits" href="https://twitter.com/vivirenremoto/" target="_blank"
+        style="position:fixed;right:10px;">vivirenremoto</a>
+
+    <img id="cara" src="cara.png" width="440" height="440"
+        style="position:fixed;top:50%;left:50%;margin-left:-220px;margin-top:-220px;">
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+
+    <script>
+
+
+        window.addEventListener('mousemove', (evt) => {
+            changeColor(evt);
+        });
+
+        window.addEventListener('touchstart', (evt) => {
+            changeColor(evt);
+        });
+
+        window.addEventListener('touchmove', (evt) => {
+            changeColor(evt);
+        });
+
+
+        function changeColor(evt) {
+
+            var currentX;
+            var currentY;
+
+            if (event.touches) {
+                currentX = event.touches[0].clientX;
+                currentY = event.touches[0].clientY;
+            } else {
+                currentX = evt.pageX;
+                currentY = evt.pageY;
+            }
+
+
+
+            var w = $(window).width();
+            var h = $(window).height();
+
+
+            var rgb = [
+                Math.round(currentX / w * 255),
+                Math.round(currentY / h * 255),
+                150];
+
+            var rgb2 = [
+                Math.round(currentY / h * 255),
+                150,
+                Math.round(currentX / w * 255)];
+
+
+
+            $('#cara').css('background-image', 'linear-gradient(rgb(' + rgb.join(',') + '), rgb(' + rgb2.join(',') + '))');
+
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
