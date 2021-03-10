@@ -46,6 +46,29 @@
             font-size: 30px;
             color: black !important;
         }
+
+
+
+        @media screen and (min-width: 480px) {
+            .info_mobile {
+                display: none;
+            }
+
+            .info_desktop {
+                display: block;
+            }
+        }
+
+
+        @media screen and (max-width: 480px) {
+            .info_mobile {
+                display: block;
+            }
+
+            .info_desktop {
+                display: none;
+            }
+        }
     </style>
 
 
@@ -60,8 +83,13 @@
         style="position:fixed;top:50%;left:50%;margin-left:-220px;margin-top:-220px;">
 
 
-    <div style="position:fixed;left:10px;right:10px;bottom:0;text-align:center;width:100%;font-size:25px;">mueve el
-        cursor o toca la pantalla</div>
+
+    <div style="position:fixed;left:10px;right:10px;bottom:0;text-align:center;width:100%;font-size:30px;">
+        <div class="info_desktop">mueve el
+            cursor</div>
+
+        <div class="info_mobile">toca la pantalla</div>
+    </div>
 
 
 
@@ -145,7 +173,10 @@
 
         }
 
-        changeColor(false);
+
+        $('#cara').css('background-image', 'linear-gradient(#c71d98,#8719ba)';
+
+
 
     </script>
 
